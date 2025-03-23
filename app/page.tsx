@@ -22,7 +22,7 @@ export default function Home() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5 }}
         >
-          Desenvolvedor Full Stack
+          Desenvolvedor Full Stack | Tech Lead
         </motion.p>
         <div className="mt-6 flex gap-4">
           <a href="#contato" className="bg-green-500 px-6 py-3 rounded-lg text-white">Contato</a>
@@ -31,13 +31,15 @@ export default function Home() {
       </header>
       
       {/* Layout Principal */}
-      <div className="max-w-7xl mx-auto px-10 grid grid-cols-3 gap-16 py-24">
+      <div className="max-w-7xl mx-auto px-10 grid grid-cols-3 gap-16 py-10">
         {/* Coluna Esquerda - 70% */}
         <div className="col-span-2 space-y-16">
           {/* Sobre */}
           <section id="sobre" className="text-center">
             <h2 className="text-4xl font-bold">Sobre Mim</h2>
-            <p className="text-gray-400 mt-4">Desenvolvedor apaixonado por tecnologia, web e inovações.</p>
+            <p className="text-gray-400 mt-4">Desde jovem eu já demonstrava interesse por tecnologia e sempre gostei de criar aplicações automatizadas e complexas. Com 5 anos de experiência na área, já me encontro como desenvolvedor Full Stack, com especialidade em linguagem C#, SQL, framework Angular e js.
+
+Quando não me encontro trabalhando, gosto de passar o tempo livre com amigos, imerso em jogos eletrônicos e explorando novas tecnologias..</p>
           </section>
           
           {/* Skills */}
@@ -116,7 +118,7 @@ export default function Home() {
       <section id="contato" className="py-32 text-center bg-gray-800">
         <h2 className="text-4xl font-bold">Entre em Contato</h2>
         <p className="text-gray-400 mt-4">Me envie um e-mail ou me chame nas redes sociais!</p>
-        <a href="mailto:seuemail@email.com" className="bg-blue-500 px-6 py-3 rounded-lg mt-6 inline-block">Enviar Email</a>
+        <a href="mailto:bruno.rsilva002@email.com" className="bg-blue-500 px-6 py-3 rounded-lg mt-6 inline-block">Enviar Email</a>
       </section>
     </div>
   );
