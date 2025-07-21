@@ -3,6 +3,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { useEffect, useRef } from 'react';
 
 function VideoBackground() {
   return (
@@ -26,6 +27,114 @@ function VideoBackground() {
       Seu navegador não suporta vídeo em background.
     </video>
   );
+}
+
+function CodersRankWidget() {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Carrega o script do CodersRank apenas uma vez
+    if (!document.getElementById('codersrank-summary-script')) {
+      const script = document.createElement('script');
+      script.src = 'https://unpkg.com/@codersrank/summary@0.9.13/codersrank-summary.min.js';
+      script.async = true;
+      script.id = 'codersrank-summary-script';
+      document.body.appendChild(script);
+    }
+    // Adiciona o elemento customizado
+    if (ref.current && !ref.current.querySelector('codersrank-summary')) {
+      const el = document.createElement('codersrank-summary');
+      el.setAttribute('username', 'b010');
+      el.setAttribute('show-avatar', '');
+      el.setAttribute('show-location', '');
+      el.setAttribute('show-badges', '');
+      el.setAttribute('badges-size', 'medium');
+      el.style.width = '100%';
+      el.style.maxWidth = '600px';
+      ref.current.appendChild(el);
+    }
+  }, []);
+
+  return <div ref={ref} className="flex justify-center my-8 w-full" />;
+}
+
+
+function CodersRankLanguages() {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    let timeout: NodeJS.Timeout;
+    if (!document.getElementById('codersrank-languages-script')) {
+      const script = document.createElement('script');
+      script.src = 'https://unpkg.com/@codersrank/languages-chart@0.9.16/codersrank-languages-chart.min.js';
+      script.async = true;
+      script.id = 'codersrank-languages-script';
+      document.body.appendChild(script);
+    }
+    timeout = setTimeout(() => {
+      if (ref.current && !ref.current.querySelector('codersrank-languages-chart')) {
+        const el = document.createElement('codersrank-languages-chart');
+        el.setAttribute('username', 'b010');
+        el.setAttribute('labels', 'true');
+        el.style.width = '100%';
+        el.style.maxWidth = '600px';
+        ref.current.appendChild(el);
+      }
+    }, 400);
+    return () => clearTimeout(timeout);
+  }, []);
+  return <div ref={ref} className="flex justify-center my-8 w-full"><noscript>Widget CodersRank Languages não suportado.</noscript></div>;
+}
+
+
+function CodersRankTechnologies() {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    let timeout: NodeJS.Timeout;
+    if (!document.getElementById('codersrank-technologies-script')) {
+      const script = document.createElement('script');
+      script.src = 'https://unpkg.com/@codersrank/technologies-chart@0.9.13/codersrank-technologies-chart.min.js';
+      script.async = true;
+      script.id = 'codersrank-technologies-script';
+      document.body.appendChild(script);
+    }
+    timeout = setTimeout(() => {
+      if (ref.current && !ref.current.querySelector('codersrank-technologies-chart')) {
+        const el = document.createElement('codersrank-technologies-chart');
+        el.setAttribute('username', 'b010');
+        el.style.width = '100%';
+        el.style.maxWidth = '600px';
+        ref.current.appendChild(el);
+      }
+    }, 400);
+    return () => clearTimeout(timeout);
+  }, []);
+  return <div ref={ref} className="flex justify-center my-8 w-full"><noscript>Widget CodersRank Technologies não suportado.</noscript></div>;
+}
+
+
+function CodersRankWorkExperience() {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    let timeout: NodeJS.Timeout;
+    if (!document.getElementById('codersrank-workexp-script')) {
+      const script = document.createElement('script');
+      script.src = 'https://unpkg.com/@codersrank/work-experience@0.9.13/codersrank-work-experience.min.js';
+      script.async = true;
+      script.id = 'codersrank-workexp-script';
+      document.body.appendChild(script);
+    }
+    timeout = setTimeout(() => {
+      if (ref.current && !ref.current.querySelector('codersrank-work-experience')) {
+        const el = document.createElement('codersrank-work-experience');
+        el.setAttribute('username', 'b010');
+        el.style.width = '100%';
+        el.style.maxWidth = '600px';
+        ref.current.appendChild(el);
+      }
+    }, 400);
+    return () => clearTimeout(timeout);
+  }, []);
+  return <div ref={ref} className="flex justify-center my-8 w-full"><noscript>Widget CodersRank Work Experience não suportado.</noscript></div>;
 }
 
 export default function Home() {
@@ -78,6 +187,14 @@ export default function Home() {
 
 Quando não me encontro trabalhando, gosto de passar o tempo livre com amigos, imerso em jogos eletrônicos e explorando novas tecnologias..</p>
           </section>
+          {/* CodersRank Widget */}
+          <CodersRankWidget />
+          <CodersRankLanguages />
+          <CodersRankTechnologies />
+          <CodersRankWorkExperience />
+          {/* <CodersRankLanguages />
+          <CodersRankTechnologies />
+          <CodersRankWorkExperience /> */}
           
           {/* Skills */}
           <section id="skills" className="text-center">
