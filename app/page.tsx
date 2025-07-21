@@ -77,21 +77,12 @@ Quando não me encontro trabalhando, gosto de passar o tempo livre com amigos, i
           <section id="projetos" className="text-center">
             <h2 className="text-4xl font-bold">Projetos</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
-              {/* Projeto existente */}
-              <motion.div 
-                className="bg-gray-800 p-4 rounded-lg shadow-lg"
-                whileHover={{ scale: 1.05 }}
-              >
-                <Image src="/projeto1.jpg" alt="Projeto 1" width={500} height={300} className="rounded" />
-                <h3 className="text-2xl font-bold mt-4">Nome do Projeto</h3>
-                <p className="text-gray-400">Descrição breve do projeto.</p>
-              </motion.div>
               {/* Novo Projeto - Mapa Indoors */}
               <motion.div 
                 className="bg-gray-800 p-4 rounded-lg shadow-lg"
                 whileHover={{ scale: 1.05 }}
               >
-                <Image src="/projeto-mapa-indoors.jpg" alt="Mapa Indoors" width={500} height={300} className="rounded" />
+                <Image src="/projeto1.png" alt="Mapa Indoors" width={500} height={300} className="rounded" />
                 <h3 className="text-2xl font-bold mt-4">Mapa Indoors</h3>
                 <p className="text-gray-400">
                   Projeto de mapas internos (indoors) para navegação e localização em ambientes fechados. 
