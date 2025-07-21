@@ -118,7 +118,7 @@ function CodersRankWorkExperience() {
     let timeout: NodeJS.Timeout;
     if (!document.getElementById('codersrank-workexp-script')) {
       const script = document.createElement('script');
-      script.src = 'https://unpkg.com/@codersrank/work-experience@0.9.13/codersrank-work-experience.min.js';
+      script.src = '<script src="https://unpkg.com/@codersrank/work-experience@0.9.8/codersrank-work-experience.min.js"></script>';
       script.async = true;
       script.id = 'codersrank-workexp-script';
       document.body.appendChild(script);
