@@ -1,11 +1,48 @@
 // Importando bibliotecas
 'use client';
+
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
+function VideoBackground() {
+  return (
+    <video
+      autoPlay
+      loop
+      muted
+      playsInline
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100vw',
+        height: '100vh',
+        objectFit: 'cover',
+        zIndex: -1,
+        pointerEvents: 'none',
+      }}
+    >
+      <source src="/background.mp4" type="video/mp4" />
+      Seu navegador não suporta vídeo em background.
+    </video>
+  );
+}
+
 export default function Home() {
   return (
-    <div className="bg-gray-900 text-white min-h-[80vh] font-sans">
+    <>
+      <VideoBackground />
+      <div style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100vw',
+        height: '100vh',
+        background: 'rgba(20, 20, 40, 0.85)',
+        zIndex: 0,
+        pointerEvents: 'none',
+      }} />
+      <div className="text-white min-h-[80vh] font-sans" style={{ position: 'relative' }}>
       {/* Header - Apresentação */}
       <header className="h-[50vh] flex flex-col justify-start items-center text-center pt-20">
         <motion.h1 
@@ -120,11 +157,12 @@ Quando não me encontro trabalhando, gosto de passar o tempo livre com amigos, i
         </div>
       </div>
       {/* Contato */}
-      <section id="contato" className="py-32 text-center bg-gray-800">
+      <section id="contato" className="py-32 text-center bg-gray-800" >
         <h2 className="text-4xl font-bold">Entre em Contato</h2>
         <p className="text-gray-400 mt-4">Me envie um e-mail ou me chame nas redes sociais!</p>
-        <a href="mailto:bruno.rsilva002@email.com" className="bg-blue-500 px-6 py-3 rounded-lg mt-6 inline-block">Enviar Email</a>
+        <a href="mailto:daityrater@gmail.com" className="bg-blue-500 px-6 py-3 rounded-lg mt-6 inline-block">Enviar Email</a>
       </section>
     </div>
+    </>
   );
 }
